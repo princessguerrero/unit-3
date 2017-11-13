@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+
+</head>
+
+<body>
+    <canvas width="2000" height="1000"></canvas>
+    <script>
+        var canvas = document.querySelector("canvas");
+        var ctx = canvas.getContext("2d");
+        const colors = ['green', 'blue', 'red', 'orange']
+
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * colors.length)]
+        }
+
+        function drawRect(x, y, width, height, rotation) {
+            console.log('x:', x, 'y:', y)
+            if (x >= 800) {
+                return;
+            }
+            ctx.fillStyle = getRandomColor();
+            ctx.fillRect(x, y, width, height)
+            ctx.rotate(1 * rotation)
+            drawRect(x + width + 1, y + height + 1, width, height)
+        }
+
+
+        setInterval(function () {
+            let rotation = Math.random()
+            drawRect(50, 50, 65, 65, rotation)
+            ctx.resetTransform();
+
+        }, 100)
+
+
+
+    </script>
+</body>
