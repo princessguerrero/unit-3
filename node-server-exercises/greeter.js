@@ -6,9 +6,13 @@ const port = 3000;
 const server = http.createServer((req, res) => {
     res.statusCode = 200;
     res.writeHead(200, {'Content-Type': 'text/plain'});
-    if (req.url === '/name?=')
-    res.write('Hello' + req.url.slice(-7));
-    res.end();
+    if (!req.url.includes('/name?= ')) {
+        res.write('please provide a name.')
+        res.end()
+    } else {
+        res.write('Hello ' + req.url.slice(7));
+        res.end();
+    }
 }) 
 
 server.listen(port, () => {
