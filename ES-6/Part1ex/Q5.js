@@ -1,10 +1,12 @@
-function forEach(arr, callback) {
-    for (let i = 0; i < arr.length; i++) {
-        callback(arr[i])
-    }
+const forEach = (arr, callback) => {
+    arr.map((elem, index) => {
+        callback(elem)
+    })   
 }
-
 
 // copy from test
 var arr = [1, 2, 3, 4, 5]
-forEach(arr,(elem))
+forEach(arr,(elem) => {
+    console.log(elem)
+});
+
