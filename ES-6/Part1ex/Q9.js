@@ -1,9 +1,18 @@
-function map(arr) {
+const map = (arr, callback) => {
     let newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        newArr.push(callback(arr[i]))
-    }
+    arr.map((elem, index) => {
+        newArr.push(callback(elem))
+    })
     return newArr
 }
 
-map([1, 2, 3], num => num * 2)
+
+// function map(arr, callback) {
+//     let newArr = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         newArr.push(callback(arr[i]))
+//     }
+//     return newArr
+// }
+
+console.log(map([2, 5, 4], num => num * 2))
